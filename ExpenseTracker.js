@@ -5,6 +5,7 @@ const addButton = document.getElementById("addbutton");
 const tbody = document.querySelector("#expenseTable tbody");
 const editButtons = document.querySelector(".editButton");
 const deleteButtons = document.querySelector(".deleteButton");
+const filterItem=document.getElementById("filteritem");
 
 let isediting = false;
 let editingIndex = null;
@@ -39,14 +40,14 @@ function displayExpenses() {
     lucide.createIcons();
     expenseForm.reset();
 }
-function updateExpense(index) { 
+function updateExpense(index) {
     const expense = expenses[index];
     document.getElementById("description").value = expense.description;
     document.getElementById("amount").value = expense.amount;
     document.getElementById("category").value = expense.category;
     document.getElementById("date").value = expense.date;
     addButton.textContent = "Update Expense";
-    }
+}
 
 function displayUpdatedExpense(index) {
     const expense = expenses[index];
@@ -59,20 +60,23 @@ function displayUpdatedExpense(index) {
     isediting = false;
 }
 
+function filterExpensesByCategory(){
+
+}
 expenseForm.addEventListener('submit', (e) => {
     e.preventDefault();
     if (!isediting) {
-    const description = document.getElementById("description").value;
-    const amount = document.getElementById("amount").value;
-    const category = document.getElementById("category").value;
-    const date = document.getElementById("date").value;
+        const description = document.getElementById("description").value;
+        const amount = document.getElementById("amount").value;
+        const category = document.getElementById("category").value;
+        const date = document.getElementById("date").value;
 
-    createExpense(description, parseFloat(amount), category, date);
-    displayExpenses();
-}
-else{
-    displayUpdatedExpense(editingIndex);
-}
+        createExpense(description, parseFloat(amount), category, date);
+        displayExpenses();
+    }
+    else {
+        displayUpdatedExpense(editingIndex);
+    }
 })
 
 tbody.addEventListener('click', (e) => {
@@ -83,13 +87,14 @@ tbody.addEventListener('click', (e) => {
         expenses.splice(index, 1);
         displayExpenses();
     }
-        if (e.target.closest(".editButton")) {
-            const button = e.target.closest(".editButton");
-            const row = button.closest("tr");
-            const index = parseInt(row.getAttribute("data-index"));
-            isediting = true;
-            editingIndex = index;
-            updateExpense(index);
-        }
+    if (e.target.closest(".editButton")) {
+        const button = e.target.closest(".editButton");
+        const row = button.closest("tr");
+        const index = parseInt(row.getAttribute("data-index"));
+        isediting = true;
+        editingIndex = index;
+        updateExpense(index);
+    }
 });
+
 
