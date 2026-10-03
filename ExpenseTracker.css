@@ -1,0 +1,48 @@
+.calendarIcon {
+    width: 22px;
+    height: 22px;
+
+    color: #63a1ff;
+    stroke-width: 2.5;
+
+    background-color: #ecf1ff;
+    padding: 10px;
+
+    border-radius: 50%;
+}
+.walletIcon{
+    width: 22px;
+    height: 22px;
+
+    color: #6c63ff;
+    stroke-width: 2.5;
+
+    background-color: #eeecff;
+    padding: 10px;
+
+    border-radius: 50%;
+}
+.dollarIcon{
+    width: 22px;
+    height: 22px;
+
+    color: #078a07;
+    stroke-width: 2.5;
+
+    background-color: #ecffed;
+    padding: 10px;
+
+    border-radius: 50%;
+}
+.walletcardIcon{
+    width: 22px;
+    height: 22px;
+
+    color: #6c63ff;
+    stroke-width: 2.5;
+
+    background-color: #eeecff;
+    padding: 10px;
+
+    border-radius: 50%;
+}
