@@ -2,7 +2,7 @@ lucide.createIcons();
 const expenses = [];
 const expenseForm=document.getElementById("expenseForm");
 const addButton = document.getElementById("addbutton");
-const tbody=querySelector("#expenseTable tbody")
+const tbody=document.querySelector("#expenseTable tbody");
 expenseForm.addEventListener('submit',(e)=>{
     e.preventDefault();
     const description=document.getElementById("description").value;
@@ -33,7 +33,10 @@ function displayExpenses(){
             <td>${expense.amount.toFixed(2)}</td>
             <td>${expense.category}</td>
             <td>${expense.date}</td>
+            <td><button class="editButton"><i data-lucide="pencil"></i></button></td>
+            <td><button class="deleteButton"><i data-lucide="trash-2"></i></button></td>
         `;
         tbody.append(row);
     })
+    lucide.createIcons();
 }

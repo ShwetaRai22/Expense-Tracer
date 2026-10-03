@@ -1,93 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Tracker</title>
     <link rel="stylesheet" href="ExpenseTracker.css">
 </head>
+
 <body>
 
     <header>
-        <i data-lucide="wallet" class="walletcardIcon"></i>
-        <h1>Expense Tracker</h1>  
-        <p>Track your spending easily!</p> 
+        <div class="headerIcon">
+            <i data-lucide="wallet" class="walletcardIcon"></i>
+        </div>
+        <div id="headmsg">
+            <h1>Expense Tracker</h1>
+            <p>Track your spending easily!</p>
+        </div>
     </header>
 
     <main>
-      
+
         <div id="addExpenseCard">
-        <h2>Add New Expense</h2>
-        <p>Enter the details below to add new expense:</p>
-    
-        <form id="expenseForm">
-        <label for="description">Description:</label>
-        <input type="text" id="description" name="description" required>
-        <label for="amount">Amount:</label>
-        <input type="number" id="amount" name="amount" step="0.01" required>
-        <label for="category">Category:</label>
-        <select id="category" name="category" required>
-            <option value="">Select a category</option>
-            <option value="Food">Food</option>
-            <option value="Entertainment">Entertainment</option>
-            <option value="Groceries">Groceries</option>
-            <option value="Shopping">Shopping</option>
-            <option value="Education">Education</option>
-            <option value="Transportation">Transportation</option>
-        </select>
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required>
-        <button type="submit" id="addbutton">Add Expense</button>
-    </form>
+            <h2>Add New Expense</h2>
+            <p>Enter the details below to add new expense:</p>
 
-    </div>
+            <form id="expenseForm">
 
-    <div id="summaryCard">
-        <div id="scard1" class="summary">
-            <img src="" alt="">
-            <i data-lucide="dollar-sign" class="dollarIcon"></i>
-            <p>Total Spent</p>
-            <h4></h4>
+                <div class="formGroup">
+                    <label for="description">Description:</label>
+                    <div class="inputBox">
+                        <i data-lucide="file-text"></i>
+                        <input type="text" id="description" name="description" required>
+                    </div>
+                </div>
+                <div class="formGroup">
+                    <label for="amount">Amount:</label>
+                    <div class="inputBox">
+                        <i data-lucide="indian-rupee"></i>
+                        <input type="number" id="amount" name="amount" step="0.01" required>
+                    </div>
+                </div>
+                <div class="formGroup">
+                    <label for="category">Category:</label>
+                    <div class="inputBox">
+                        <i data-lucide="tag"></i>
+                        <select id="category" name="category" required>
+                            <option value="">Select a category</option>
+                            <option value="Food">Food</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Groceries">Groceries</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Education">Education</option>
+                            <option value="Transportation">Transportation</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="formGroup">
+                    <label for="date">Date:</label>
+                    <div class="inputBox">
+                        <i data-lucide="calendar"></i>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                </div>
+                <button type="submit" id="addbutton">+Add Expense</button>
+            </form>
         </div>
-        <div id="scard2" class="summary">
-            <i data-lucide="calendar-days" class="calendarIcon"></i>
-            <p>This Month</p>
-            <h4></h4></div>
-        <div id="scard3" class="summary"><img src="" alt="">
-            <i data-lucide="wallet" class="walletIcon"></i>
-            <p>Average Daily</p>
-            <h4></h4></div>
-    </div>
-    <div id="expenseListCard">
-        <h2>Expense List</h2>
-        <p>Here are your recorded expenses:</p>
-        <div id="filterRecords">
-            <label for="filterCategory">Filter by Category:</label>
-            <select id="filterCategory" name="filterCategory">
-                <option value="">All Categories</option>
-                <option value="Food">Food</option>
-                <option value="Entertainment">Entertainment</option>
-                <option value="Groceries">Groceries</option>
-                <option value="Shopping">Shopping</option>
-                <option value="Education">Education</option>
-                <option value="Transportation">Transportation</option>
-            </select>
+
+
+        <div id="summaryCard">
+            <div id="scard1" class="summary">
+                <div class="sideIcon">
+                    <i data-lucide="dollar-sign" class="dollarIcon"></i>
+                </div>
+                <p>Total Spent</p>
+                <div class="inputBox">
+                    <!-- <i data-lucide="indian-rupee"></i> -->
+                    <h4></h4>
+                </div>
+            </div>
+            <div id="scard2" class="summary">
+                <div class="sideIcon">
+                    <i data-lucide="calendar-days" class="calendarIcon"></i>
+                </div>
+                <p>This Month</p>
+                <div class="inputBox">
+                    <!-- <i data-lucide="indian-rupee"></i> -->
+                    <h4></h4>
+                </div>
+            </div>
+            <div id="scard3" class="summary">
+                <div class="sideIcon">
+                    <i data-lucide="chart-column" class="chartIcon"></i>
+                </div>
+                <p>Average Daily</p>
+                <div class="inputBox">
+                    <!-- <i data-lucide="indian-rupee"></i> -->
+                    <h4>23.04</h4>
+                </div>
+            </div>
         </div>
-        <table id="expenseTable">
-            <thead>
-                <tr>
-                    <th>Description</th>
-                    <th>Amount</th>
-                    <th>Category</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
+        
+        <div id="expenseListCard">
+            <h2>Your Expense List</h2>
+            <p>Here are your recorded expenses:</p>
+            <div id="filterRecords">
+                <select id="filterCategory" name="filterCategory">
+                    <option value="">All Categories</option>
+                    <option value="Food">Food</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Groceries">Groceries</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Education">Education</option>
+                    <option value="Transportation">Transportation</option>
+                </select>
+            </div>
+            <table id="expenseTable">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
     </main>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="ExpenseTracker.js"></script>
 </body>
+
 </html>

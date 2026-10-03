@@ -1,48 +1,203 @@
-.calendarIcon {
-    width: 22px;
-    height: 22px;
-
-    color: #63a1ff;
-    stroke-width: 2.5;
-
-    background-color: #ecf1ff;
-    padding: 10px;
-
-    border-radius: 50%;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
-.walletIcon{
-    width: 22px;
-    height: 22px;
-
-    color: #6c63ff;
-    stroke-width: 2.5;
-
-    background-color: #eeecff;
+header{
+    padding: 20px 40px;
+    /* background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1); */
+}
+header h1{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+header p{
+    color: #767575;
+    font-size: 17px;
+}
+.headmsg{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    flex-direction: column;
+    
+}
+.sideIcon,.headerIcon{
+    float:left;
+    height: 50px;
+    margin-right: 10px;
+    padding-top:10px;
+}
+/* 2nd div styling(adding new expense)*/
+#addExpenseCard, #expenseListCard{
+    background-color: #fff;
+    padding: 20px 40px;
+    margin: 20px 40px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+h2{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 10px;
+}
+p{
+    color: #767575;
+    font-size: 15px;
+}
+#expenseForm{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.formGroup{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+label{
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+input, select{
     padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-left: 40px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#addbutton{
+    background-color: #110d5c;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    height: fit-content;
+    transition:transform 0.2s ease;
+}
+.inputBox{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+.inputBox svg{
+    position: absolute;
+    left: 5px;
+    top: 35%;
+    transform: translateY(-50%);
+}
+#addbutton:hover{
+    background-color: #7a74f9;
+}
+#addbutton:active{
+    transform: scale(0.95);
+}
+/* 3rd card styling */
 
-    border-radius: 50%;
+#summaryCard{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.summary{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: left;
+    width: 300px;
+    border-radius: 10px;
+    /* box-shadow: 0px 2px 5px rgba(0,0,0,0.1); */
+}
+.calendarIcon {
+    color: #63a1ff;
+    background-color: #e2eaff;
+}
+.chartIcon{
+    color: #6c63ff;
+    background-color: #e2dffb;
 }
 .dollarIcon{
-    width: 22px;
-    height: 22px;
-
     color: #078a07;
-    stroke-width: 2.5;
-
-    background-color: #ecffed;
-    padding: 10px;
-
-    border-radius: 50%;
+    background-color: #daf8dc;
 }
 .walletcardIcon{
-    width: 22px;
-    height: 22px;
-
-    color: #6c63ff;
+    width: 45px;
+    height: 45px;
+}
+#scard1{
+    background-color: #f5fdf5;
+}
+#scard2{
+    background-color: #f7fbff;
+}
+#scard3{
+    background-color: #f5f0fd;
+}
+.sideIcon svg{
+    width: 50px;
+    height: 50px;
     stroke-width: 2.5;
-
-    background-color: #eeecff;
     padding: 10px;
-
     border-radius: 50%;
+}
+#summaryCard h4{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+/* #summary .inputBox{
+    position: relative;
+}
+#summary svg{
+    width: 30px;
+    height: 30px;
+    stroke-width: 2.5;
+    position: absolute;
+    left: 5px;
+    top: 35%;
+    transform: translateY(-50%);
+} */
+/* 4th card styling */
+#expenseListCard{
+    position: relative;
+}
+#filterRecords{
+   position:absolute;
+    right: 50px;
+    top: 20px;
+}
+#expenseTable{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+thead th{
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+}
+tbody td{
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+td button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+td svg{
+    width: 20px;
+    height: 30px;
+    stroke-width: 2.5;
+}
+.editButton svg{
+    color: #6c63ff;
+}
+.deleteButton svg{
+    color: #ff4d4d;
+}
+td button:hover svg{
+    transform: scale(1.2);
 }
