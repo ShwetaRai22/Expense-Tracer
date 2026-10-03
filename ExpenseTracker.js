@@ -67,7 +67,7 @@ expenseForm.addEventListener('submit', (e) => {
         const amount = document.getElementById("amount").value;
         const category = document.getElementById("category").value;
         const date = document.getElementById("date").value;
-
+        console.log(amount);
         createExpense(description, parseFloat(amount), category, date);
         displayExpenses(expenses);
     }
@@ -91,6 +91,10 @@ tbody.addEventListener('click', (e) => {
         isediting = true;
         editingIndex = index;
         updateExpense(index);
+        expenseForm.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+});
     }
 });
 

@@ -27,6 +27,7 @@ header p{
     height: 50px;
     margin-right: 10px;
     padding-top:10px;
+    margin-bottom: 20px;
 }
 /* 2nd div styling(adding new expense)*/
 #addExpenseCard, #expenseListCard{
@@ -96,26 +97,25 @@ input, select{
 }
 /* 3rd card styling */
 
-#summaryCard{
+.summaryCard{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 .summary{
     margin: 20px;
-    padding: 20px;
-    border-radius: 5px;
+    padding: 15px;
     text-align: left;
     width: 300px;
     border-radius: 10px;
-    /* box-shadow: 0px 2px 5px rgba(0,0,0,0.1); */
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
 }
 .calendarIcon {
     color: #63a1ff;
     background-color: #e2eaff;
 }
 .chartIcon{
-    color: #6c63ff;
+    color: #9463ff;
     background-color: #e2dffb;
 }
 .dollarIcon{
@@ -126,14 +126,27 @@ input, select{
     width: 45px;
     height: 45px;
 }
+.summary p{
+    font-size: 16px;
+}
 #scard1{
     background-color: #f5fdf5;
 }
+#scard1 p{
+    color: #078a07;
+}
+
 #scard2{
     background-color: #f7fbff;
 }
+#scard2 p{
+    color: #4e93fa;
+}
 #scard3{
     background-color: #f5f0fd;
+}
+#scard3 p{
+    color: #9463ff;
 }
 .sideIcon svg{
     width: 50px;
@@ -142,23 +155,18 @@ input, select{
     padding: 10px;
     border-radius: 50%;
 }
-#summaryCard h4{
-    font-size: 20px;
+.summary h4{
+    font-size: 25px;
     font-weight: bold;
-    margin-top: 5px;
+    margin-top: 13px;
+    display: flex;
 }
-/* #summary .inputBox{
-    position: relative;
+.sinputBox{
+    float:left;
+    height: 50px;
+    padding-top:15px;
 }
-#summary svg{
-    width: 30px;
-    height: 30px;
-    stroke-width: 2.5;
-    position: absolute;
-    left: 5px;
-    top: 35%;
-    transform: translateY(-50%);
-} */
+
 /* 4th card styling */
 #expenseListCard{
     position: relative;
