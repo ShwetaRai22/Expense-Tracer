@@ -5,7 +5,7 @@ const addButton = document.getElementById("addbutton");
 const tbody = document.querySelector("#expenseTable tbody");
 const editButtons = document.querySelector(".editButton");
 const deleteButtons = document.querySelector(".deleteButton");
-const filterItem=document.getElementById("filteritem");
+const filterItem=document.getElementById("filterCategory");
 
 let isediting = false;
 let editingIndex = null;
@@ -22,7 +22,7 @@ function createExpense(description, amount, category, date) {
 
 let rowIndex = 0;
 
-function displayExpenses() {
+function displayExpenses(expenses) {
     tbody.innerHTML = "";
     expenses.forEach((expense, rowIndex) => {
         const row = document.createElement("tr");
@@ -55,14 +55,11 @@ function displayUpdatedExpense(index) {
     expense.amount = parseFloat(document.getElementById("amount").value);
     expense.category = document.getElementById("category").value;
     expense.date = document.getElementById("date").value;
-    displayExpenses();
+    displayExpenses(expenses);
     addButton.textContent = "+Add Expense";
     isediting = false;
 }
 
-function filterExpensesByCategory(){
-
-}
 expenseForm.addEventListener('submit', (e) => {
     e.preventDefault();
     if (!isediting) {
@@ -72,7 +69,7 @@ expenseForm.addEventListener('submit', (e) => {
         const date = document.getElementById("date").value;
 
         createExpense(description, parseFloat(amount), category, date);
-        displayExpenses();
+        displayExpenses(expenses);
     }
     else {
         displayUpdatedExpense(editingIndex);
@@ -85,7 +82,7 @@ tbody.addEventListener('click', (e) => {
         const row = button.closest("tr");
         const index = parseInt(row.getAttribute("data-index"));
         expenses.splice(index, 1);
-        displayExpenses();
+        displayExpenses(expenses);
     }
     if (e.target.closest(".editButton")) {
         const button = e.target.closest(".editButton");
@@ -97,4 +94,17 @@ tbody.addEventListener('click', (e) => {
     }
 });
 
-
+filterItem.addEventListener('change',()=>{
+    const categoryName= filterItem.value;
+    
+    if(filterItem.value==""){
+        displayExpenses(expenses);
+    }
+    else{
+        const filteredExpense= expenses.filter((expense)=>{
+        return expense.category===categoryName;
+    })
+    // filteredExpense is an array of match category;
+    displayExpenses(filteredExpense);
+    }
+})
