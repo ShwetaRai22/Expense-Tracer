@@ -1,5 +1,5 @@
 lucide.createIcons();
-const expenses = [];
+let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 const expenseForm = document.getElementById("expenseForm");
 const addButton = document.getElementById("addbutton");
 const tbody = document.querySelector("#expenseTable tbody");
@@ -18,6 +18,7 @@ function createExpense(description, amount, category, date) {
         date: date
     };
     expenses.push(newExpense);
+    localStorage.setItem("expenses", JSON.stringify(expenses));
 }
 
 let rowIndex = 0;
@@ -40,6 +41,7 @@ function displayExpenses(expenses) {
     lucide.createIcons();
     expenseForm.reset();
 }
+displayExpenses(expenses);
 function updateExpense(index) {
     const expense = expenses[index];
     document.getElementById("description").value = expense.description;
@@ -55,6 +57,7 @@ function displayUpdatedExpense(index) {
     expense.amount = parseFloat(document.getElementById("amount").value);
     expense.category = document.getElementById("category").value;
     expense.date = document.getElementById("date").value;
+    localStorage.setItem("expenses", JSON.stringify(expenses));
     displayExpenses(expenses);
     addButton.textContent = "+Add Expense";
     isediting = false;
@@ -91,6 +94,7 @@ tbody.addEventListener('click', (e) => {
         const row = button.closest("tr");
         const index = parseInt(row.getAttribute("data-index"));
         expenses.splice(index, 1);
+        localStorage.setItem("expenses", JSON.stringify(expenses));
         displayExpenses(expenses);
         displaytotalExpense();
         displayBalance();
@@ -133,23 +137,32 @@ const totalBalance = document.getElementById("sh3");
 const totalSpent= document.getElementById("s2h1");
 const thisMonth= document.getElementById("s2h2");
 const totalAvg= document.getElementById("s2h3");
+let savedIncome = localStorage.getItem("totalIncome") || 0.0;
+
+inputIncome.value=savedIncome;
+totalIncome.textContent=savedIncome;
+    displaytotalExpense();
+    displayBalance();
+    dailyAvg();
+    monthly();
 
 inputIncome.addEventListener('input',()=>{
     totalIncome.textContent=inputIncome.value;
-    totalSpent.textContent=inputIncome.value;
+    localStorage.setItem("totalIncome",inputIncome.value);
     displayBalance();
 })
 
 function displayBalance(){
     let totalexpns=parseFloat(totalExpense.textContent);
-    totalBalance.textContent= parseFloat(inputIncome.value)-totalexpns;
+    totalBalance.textContent= (parseFloat(inputIncome.value)-totalexpns).toFixed(2);
 }
 function displaytotalExpense(){
    const total= expenses.reduce((total, expense) => {
     total=total + expense.amount;
     return total;
 }, 0);
-totalExpense.textContent= total;
+totalExpense.textContent= total.toFixed(2);
+totalSpent.textContent=totalExpense.textContent;
 }
 
 function dailyAvg(){
@@ -158,9 +171,13 @@ function dailyAvg(){
         uniqueDates.add(expense.date);
     });
     const totalDate=uniqueDates.size;
-
     const avg=parseFloat(totalExpense.textContent)/totalDate;
-    totalAvg.textContent=avg;
+    if (Number.isNaN(avg)) {
+    totalAvg.textContent = "0.00";
+} else {
+    totalAvg.textContent = avg.toFixed(2);
+}
+   
 }
 function monthly(){
     const uniqueMonths=new Set();
@@ -170,6 +187,10 @@ function monthly(){
   })
     const totalMonths=uniqueMonths.size;
     const avg=parseFloat(totalExpense.textContent)/totalMonths;
-    thisMonth.textContent=avg;
+     if (Number.isNaN(avg)) {
+    thisMonth.textContent = "0.00";
+} else {
+    thisMonth.textContent = avg.toFixed(2);
+}
 }
 
