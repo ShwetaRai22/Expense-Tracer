@@ -5,8 +5,9 @@
 }
 header{
     padding: 20px 40px;
-    /* background-color: #fff;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.1); */
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    position: relative;
 }
 header h1{
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -28,6 +29,11 @@ header p{
     margin-right: 10px;
     padding-top:10px;
     margin-bottom: 20px;
+}
+header .inputBox{
+    position:absolute;
+    right: 50px;
+    top: 20px;
 }
 /* 2nd div styling(adding new expense)*/
 #addExpenseCard, #expenseListCard{

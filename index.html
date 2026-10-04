@@ -18,42 +18,48 @@
             <h1>Expense Tracker</h1>
             <p>Track your spending easily!</p>
         </div>
+        <div class="inputBox">
+            <i data-lucide="indian-rupee"></i>
+            <input type="number" id="totalincome" name="totalincome" required placeholder="Total Income">
+        </div>
     </header>
 
     <main>
+
         <div class="summaryCard">
-            <div id="scard1" class="summary">
+
+            <div id="scard1" class="summary" class="s1">
                 <div class="sideIcon">
                     <i data-lucide="hand-coins" class="dollarIcon"></i>
                 </div>
-                <label for="totalIncome">Total Income</label>
-                <div class="inputBox">
-                        <i data-lucide="indian-rupee"></i>
-                        <input type="number" id="totalincome" name="totalincome" required>
-                    </div>
-                
+                <p>Total Income</p>
+                <div class="sinputBox">
+                    <i data-lucide="indian-rupee"></i>
+                </div>
+                    <h4 id="sh1">0.00</h4>
             </div>
-            <div id="scard2" class="summary">
+
+            <div id="scard2" class="summary" class="s1">
                 <div class="sideIcon">
                     <i data-lucide="receipt" class="calendarIcon"></i>
                 </div>
                 <p>Total Expense</p>
                 <div class="sinputBox">
-                    <i data-lucide="indian-rupee"></i></div>
-                    <h4></h4>
-                
+                    <i data-lucide="indian-rupee"></i>
+                </div>
+                    <h4 id="sh2">0.00</h4>
             </div>
-            <div id="scard3" class="summary">
+            <div id="scard3" class="summary" class="s1">
                 <div class="sideIcon">
                     <i data-lucide="scale" class="chartIcon"></i>
                 </div>
                 <p>Remaining Balance</p>
                 <div class="sinputBox">
-                    <i data-lucide="indian-rupee"></i></div>
-                    <h4></h4>
+                    <i data-lucide="indian-rupee"></i>
+                </div>
+                <h4 id="sh3">0.00</h4>
             </div>
         </div>
-
         <div id="addExpenseCard">
             <h2>Add New Expense</h2>
             <p>Enter the details below to add new expense:</p>
@@ -102,37 +108,40 @@
 
 
         <div class="summaryCard">
-            <div id="scard1" class="summary">
+            <div id="scard1" class="summary" class="s2">
                 <div class="sideIcon">
                     <i data-lucide="dollar-sign" class="dollarIcon"></i>
                 </div>
                 <p>Total Spent</p>
                 <div class="sinputBox">
-                    <i data-lucide="indian-rupee"></i></div>
-                    <h4></h4>
-                
+                    <i data-lucide="indian-rupee"></i>
+                </div>
+                <h4 id="s2h1">0.00</h4>
+
             </div>
-            <div id="scard2" class="summary">
+            <div id="scard2" class="summary" class="s2">
                 <div class="sideIcon">
                     <i data-lucide="calendar-days" class="calendarIcon"></i>
                 </div>
                 <p>This Month</p>
                 <div class="sinputBox">
-                    <i data-lucide="indian-rupee"></i></div>
-                    <h4></h4>
-                
+                    <i data-lucide="indian-rupee"></i>
+                </div>
+                <h4 id="s2h2">0.00</h4>
+
             </div>
-            <div id="scard3" class="summary">
+            <div id="scard3" class="summary" class="s2">
                 <div class="sideIcon">
                     <i data-lucide="chart-column" class="chartIcon"></i>
                 </div>
                 <p>Average Daily</p>
                 <div class="sinputBox">
-                    <i data-lucide="indian-rupee"></i></div>
-                    <h4></h4>
+                    <i data-lucide="indian-rupee"></i>
+                </div>
+                <h4 id="s2h3">0.00</h4>
             </div>
         </div>
-        
+
         <div id="expenseListCard">
             <h2>Your Expense List</h2>
             <p>Here are your recorded expenses:</p>
