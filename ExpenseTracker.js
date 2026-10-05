@@ -137,6 +137,7 @@ const totalBalance = document.getElementById("sh3");
 const totalSpent= document.getElementById("s2h1");
 const thisMonth= document.getElementById("s2h2");
 const totalAvg= document.getElementById("s2h3");
+let balanceValue=0.0;
 let savedIncome = localStorage.getItem("totalIncome") || 0.0;
 
 inputIncome.value=savedIncome;
@@ -154,7 +155,16 @@ inputIncome.addEventListener('input',()=>{
 
 function displayBalance(){
     let totalexpns=parseFloat(totalExpense.textContent);
-    totalBalance.textContent= (parseFloat(inputIncome.value)-totalexpns).toFixed(2);
+    if(inputIncome.value==0.0 || inputIncome==undefined)
+    {
+        totalBalance.textContent = "0.00";
+        totalIncome.textContent = "0.00";
+        
+    }
+    else {
+    balanceValue= (parseFloat(inputIncome.value)-totalexpns).toFixed(2);
+    totalBalance.textContent = balanceValue;
+    }
 }
 function displaytotalExpense(){
    const total= expenses.reduce((total, expense) => {
