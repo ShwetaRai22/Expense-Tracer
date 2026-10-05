@@ -6,7 +6,7 @@ This project allows users to record their expenses, manage their income, track t
 
 ## 🚀 Live Demo
 
-[View Expense Tracker](https://shwetarai22.github.io/Expense-tracer/)
+[View Expense Tracker](shwetarai22.github.io/Expense-Tracer/)
 
 ## 📌 Features
 
